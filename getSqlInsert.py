@@ -18,9 +18,7 @@ def process_line(line):
     :param line: 原始行数据
     :return: 处理后的行数据列表
     """
-    print(f'---01-> {line}')
-    line = line.strip().strip('| ')  # 去掉前后 '| ' 和多余空格
-    print(f'---12-> {line}')
+    line = line.strip().strip('|')  # 去掉前后 '|' 
     cells = [
         "NULL" if cell.strip().lower() == "null" else
         "''" if not cell.strip() else
@@ -31,7 +29,7 @@ def process_line(line):
 
 
 def process_line_columns(line):
-    line = line.strip().strip('|')  # 去掉前后 '| ' 和多余空格
+    line = line.strip().strip('|')  # 去掉前后 '|' 
     cells = [f"{cell.strip()}" for cell in line.split(' | ')]
     return cells
 
@@ -92,3 +90,4 @@ def convert_mysql_output_to_insert(file_path):
 # a.txt
 if __name__ == '__main__':
     convert_mysql_output_to_insert("a.txt")
+
