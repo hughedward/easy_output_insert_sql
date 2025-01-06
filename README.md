@@ -4,7 +4,7 @@
 
 <img width="829" alt="image" src="https://github.com/user-attachments/assets/71339af4-53f4-4d7a-be78-138e018d7088">
 
-[中文](README) ｜ English
+[中文](README.md) | [English](README_EN.md)
 
 一个简单但实用的工具，用于将 MySQL 查询结果转换为 INSERT 语句。
 
