@@ -93,6 +93,7 @@ MIT License
 
 ```shell
 qiuYeBai(hugh.edward)
+hughadward123@gmail.com
 ```
 
 ## Changelog
