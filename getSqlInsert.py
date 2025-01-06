@@ -1,4 +1,5 @@
 import os
+import sys
 
 """
 @author: qiuYeBai
@@ -45,8 +46,10 @@ def get_columns_line_index(lines):
 # 辅助函数：获取最后一行行号
 def get_last_line_index(lines):
     for i in range(len(lines) - 1, -1, -1):  # 从文件末尾向前查找
-        if '|' in lines[i] and not lines[i].strip().startswith('+'):
-            return i
+        line = lines[i].strip()
+        # 找到最后一个数据行（包含 | 且不是分隔线的行）
+        if '|' in line and not line.startswith('+'):
+            return i + 1  # 返回下一行的索引，这样切片时能包含最后一行数据
     raise ValueError("未找到数据结束行")
 
 
@@ -59,7 +62,8 @@ def convert_mysql_output_to_insert(file_path):
     output_file = f"{table_name}.sql"  # 输出文件名
 
     with open(file_path, 'r', encoding='utf-8') as file:
-        lines = file.readlines()
+        # 去掉空行后再处理
+        lines = [line for line in file.readlines() if line.strip()]
 
     columns_line_index = get_columns_line_index(lines)
     last_line_index = get_last_line_index(lines)
@@ -89,5 +93,11 @@ def convert_mysql_output_to_insert(file_path):
 # 示例调用
 # a.txt
 if __name__ == '__main__':
-    convert_mysql_output_to_insert("a.txt")
+    if len(sys.argv) < 2:
+        print("请提供文件名参数！")
+        print("使用方法: python util.py a.txt")
+        sys.exit(1)
+
+    file_name = sys.argv[1]
+    convert_mysql_output_to_insert(file_name)
 
