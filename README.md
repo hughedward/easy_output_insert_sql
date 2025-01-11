@@ -27,7 +27,7 @@
 1. 基础用法：
 
 ```shell
-$ python converter.py your_query_result.txt
+$ python getSqlInsert.py your_query_result.txt
 ```
 
 2. 输入文件格式示例（MySQL 查询结果）：
