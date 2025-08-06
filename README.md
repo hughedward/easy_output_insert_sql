@@ -110,6 +110,8 @@ trans select results into "insert into xxx" format
 such as this:
 <img width="855" alt="image" src="https://github.com/user-attachments/assets/89018edc-2137-4b64-9a47-b77ed74d6dfe" />
 
+## Star History
 
+[![Star History Chart](https://api.star-history.com/svg?repos=hughedward/easy_output_insert_sql&type=Date)](https://www.star-history.com/#hughedward/easy_output_insert_sql&Date)
 
 
